@@ -1,4 +1,4 @@
-<!-- Filename: lohin-process.php -->
+<!-- Filename: login-process.php -->
 <!-- Author: Danny Ford -->
 <!-- Date: 30-Jan-2018 -->
 <!-- Description: Query's a data base for the entered username and password and, on success, --> 
@@ -31,6 +31,17 @@
 	$username = mysqli_real_escape_string($connection, $username);
 	$password = mysqli_real_escape_string($connection, $password);
 
+	// If using encrypted password:
+	// $hashed_password = "SELECT Password 
+	// 		FROM TECHNICIAN 
+	// 		WHERE Username = '$username'
+	// 		LIMIT 1";
+	// if (hash_equals($hashed_password, crypt($password, $hashed_password))) {
+	//    header("location:opened.php");
+	//    // echo "Password verified!";
+	// }
+
+
 	// query the DB for the username and password in the html form
 	$sql = "SELECT * 
 			FROM TECHNICIAN 
@@ -45,11 +56,13 @@
 	$row = mysqli_fetch_array($result, MYSQLI_ASSOC);
 	$_SESSION['user'] = $row['Username'];
 	$_SESSION['Shop'] = $row['Shop'];
+	$_SESSION['logged_in'] = True;
 
 	// Supposedly fetches all the attributes of user
 	// $user = $result->fetch_assoc();
 
-	if ($username == "" || $password == "") 
+	// Change to || if new password not functional
+	if ($username == "" && $password == "") 
 	{
 		//echo '$("#alert").html("Must enter a valid username and password.")';
 		echo "<script>
@@ -57,11 +70,18 @@
 			window.location.href='login.php';
 			</script>";
 	}
-	elseif ($row['Username'] == $username && $row['Password'] == $password) 
+	elseif ($row['Username'] == $username && $password == "") 
 	{
-		
+		header("location:newPass.php");
+		// echo "<script>
+		// 	alert('Please enter a password.');
+		// 	window.location.href='login.php';
+		// 	</script>";
+	}
+	elseif ($row['Username'] == $username && $row['Password'] == $password) 
+	{		
 		header("location:opened.php");
-	} 
+	}
 	else 
 	{
 		//echo '$("#alert").html("Invalid login combination. Please try again.")';
@@ -71,5 +91,4 @@
 			</script>";
 	}
 	mysqli_close($connection);
-
 ?>

@@ -16,7 +16,7 @@
         <title>Shop Registry</title>
     
         <!-- Custom Stylesheet -->
-        <link rel="stylesheet" href="css/custom-stylesheet.css">
+        <link rel="stylesheet" href="../css/custom-stylesheet.css">
     
         <!-- Bootstrap -->
         <!-- Latest compiled and minified CSS. Need this for bootstrap. -->

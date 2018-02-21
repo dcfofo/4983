@@ -1,3 +1,11 @@
+<!-- Filename: navbar.php -->
+<!-- Author: Danny Ford -->
+<!-- Date: 30-Jan-2018 -->
+<!-- Description: -->
+<!-- Bugs/Notes:  
+    -  -->
+
+
 <?php
     //include 'connect_to_DB.php';
     if(empty($_SESSION)) // if the session not yet started 
@@ -63,16 +71,16 @@
               </ul>
             </li> -->
             <!-- COMPONENT HISTORY TAB -->
-            <li><a id="component-history-nav" href="searchHistory.php">Component History</a></li>
+            <li><a id="component-history-nav" href="componentHistory.php">Component History</a></li>
             <!-- <li><a id="component-history-nav" href="#">Component History</a></li> -->
           </ul>
 
           <!-- SEARCH PART INPUT AND BUTTON -->
-          <form class="navbar-form navbar-left" action="xxx.php">
+          <form class="navbar-form navbar-left" action="searchPart.php">
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="Find NSN">
+              <input type="text" class="form-control" name="NSN_search" id="NSN_search" placeholder="Find NSN">
               <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
+                <button class="btn btn-default" name="searchPart" id="searchPart" type="submit">
                   <i class="glyphicon glyphicon-search"></i>
                 </button>
               </div>
@@ -87,11 +95,11 @@
             <button type="submit" class="btn btn-default">Find Part</button>                        
           </form> -->
           <!-- SEARCH COMPONENT HISTORY -->
-          <form class="navbar-form navbar-left" action="xxx.php">
+          <form class="navbar-form navbar-left" action="searchHistory.php" method='post'>
             <div class="input-group">
-              <input type="text" class="form-control" placeholder="SN History">
+              <input type="text" class="form-control" name="SN_search" id="SN_search" placeholder="SN History">
               <div class="input-group-btn">
-                <button class="btn btn-default" type="submit">
+                <button class="btn btn-default" name="searchHistory" id="searchHistory" type="submit">
                   <i class="glyphicon glyphicon-search"></i>
                 </button>
               </div>

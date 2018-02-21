@@ -1,3 +1,15 @@
+<!-- Filename: searchPart.php -->
+<!-- Author: Danny Ford -->
+<!-- Date: 30-Jan-2018 -->
+<!-- Description:  -->
+<!-- -->
+<!-- Bugs:
+	 - 
+	 -   -->
+<!-- Notes:
+	 -  -->
+
+
 <?php
 //require_once('connect_to_DB.php');
 if(empty($_SESSION)) // if the session not yet started 

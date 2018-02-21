@@ -8,7 +8,7 @@
 
 <?php
     if(empty($_SESSION))
-        session_start(); 
+        session_start();
     if(!isset($_SESSION['user']))
         header("location: login.php");
     // if(!isset($_POST['submit'])) { // if the form not yet submitted

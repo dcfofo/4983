@@ -19,6 +19,9 @@ button {
    height: 33px !important;
 }
 
+.glyphicon {
+    height: 20px !important;
+}
 /*li.selected {
     background-color:#1087a4;
 }*/
@@ -36,6 +39,23 @@ button {
 /*Add this padding because of the fixed top navbar*/
 body { 
     padding-top: 65px; 
+}
+/*For the height of the panel header on the shop log*/
+.log-filter {
+/*    padding-bottom: 20px;*/
+    height: 55px !important;
+}
+/*Padding for the count badge on shop log. */
+.count {
+    margin-right: 20px;
+}
+
+.filter-box {
+    width: 145px !important;
+}
+.footer {
+    position:fixed;
+    margin-top: 300px;
 }
 
 /*---------------------------------------------------------------------------*/

@@ -1,13 +1,24 @@
 <!-- Filename: login.php -->
 <!-- Author: Danny Ford -->
 <!-- Date: 30-Jan-2018 -->
-<!-- Description:  Login page for Shop Registry - COMP 4983 Projrct Application.-->
-<!-- Bugs/Notes:  -->
+<!-- Description:  .-->
+<!-- Bugs/Notes:  
+     - -->
 
 <?php
-    session_start();
-    session_unset();
-    //session_destroy();
+    //include 'connect_to_DB.php';
+    if(empty($_SESSION)) // if the session not yet started 
+        session_start(); 
+    // if(!isset($_SESSION['user']))
+    //     header("location: login.php");
+    if ($_SESSION['logged_in'] !== True) {
+        header("location: login.php");
+    }
+    $_SESSION['logged_in'] = False;
+    // if(!isset($_POST['submit'])) { // if the form not yet submitted
+    //  header("Location: login.php");
+    //  exit;
+    // session_unset();
 ?>
 
 <?php include 'header.php';?>
@@ -20,27 +31,28 @@
     <br>
     <br>
     <div class=" text-center container">
-
+    
         <!-- Login Box Start -->
         <div id="loginbox" class="mainbox col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3">         
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <div class="panel-title"><!-- <img class="pull-left" alt="Brand" src="images/Brand11.png" height="20" width="40"> -->
-                        <strong>14 AMS Shop Registry</strong></div>
+                        <strong>Create New Password</strong></div>
                 </div>     
 
                 <div class="panel-body">
 
-                    <form name="form" id="login" class="form-horizontal" action="login-process.php" method="POST">
-                       
-                        <div class="input-group">
-                            <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                            <input id="user" name="user" type="text" class="form-control" name="user" placeholder="Username">                                        
-                        </div>
-
+                    <form name="new_pass_form" id="create_new_pass" class="form-horizontal" action="inc/create_newPass.php" method="POST">
+                        <p class="pull-left ">Enter New Password</p><br><br>
                         <div class="input-group">
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
-                            <input id="pass" name="pass" type="password" class="form-control" name="password" placeholder="Password">
+                            <input id="new_pass_1" name="new_pass_1" type="password" class="form-control" placeholder="Password">                                   
+                        </div>
+                        <br>
+                        <p class="pull-left ">Retype New Password</p><br><br>
+                        <div class="input-group">
+                            <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                            <input id="new_pass_2" name="new_pass_2" type="password" class="form-control" placeholder="Password">
                         </div>
 
                         <!-- OPTIONAL ALERT FOR INVALID PASSWORD (NOT FUNCTIONAL) -->
@@ -50,7 +62,7 @@
                             <!-- Login Button -->
                             <div class="col-sm-12 controls">
                                 <br>
-                                <button id="submit" name="submit" type="submit" href="#" class="btn btn-primary pull-center"><i class="glyphicon glyphicon-log-in"></i> Log in</button>                          
+                                <button id="submit_pass" name="submit_pass" type="submit" href="#" class="btn btn-primary pull-center"><i class="glyphicon glyphicon-log-in"></i> Log in</button>                          
                             </div>
                         </div>
                     </form>

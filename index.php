@@ -11,5 +11,5 @@
 
 <?php
   // Function used to redirect to home.php
-  header("location:login.php?action");
+  header("location:pages/login.php?action");
 ?>
