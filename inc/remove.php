@@ -24,7 +24,6 @@
 	// 		window.location.href='../pages/closed.php';
 	// 		exit;
 	// 	}</script>";
-
 	// }
 	if (isset($_POST['delete'])) {		
 

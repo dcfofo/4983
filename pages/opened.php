@@ -53,8 +53,8 @@ mysqli_close($connection);
 <?php include '../inc/header.php';?>
 
   <body id="open-items-body clearfix">
-
-      <?php include '../inc/navbar.php';?>
+      
+      <?php $page = 'opened'; include '../inc/navbar.php';?>
 
       <div class="open-items" id="open-items">
         <div class="container">
@@ -72,7 +72,8 @@ mysqli_close($connection);
                         AND CF543.SN=c.SN
                         AND TECHNICIAN.Shop='{$_SESSION['Shop']}'
                         AND l.Shop= '{$_SESSION['Shop']}'
-                        AND l.Date_closed IS  NULL";
+                        AND l.Date_closed IS  NULL
+                        ORDER BY  l.Date_in";
 
                 $result = $connection->query($sql)
                           or die("Failed to query tables. " . mysqli_error());

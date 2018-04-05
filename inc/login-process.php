@@ -62,13 +62,14 @@
 	if ($username == "" && $password == "") 
 	{
 		//echo '$("#alert").html("Must enter a valid username and password.")';
+		// $_SESSION['invalid_login'] = True;
 		echo "<script>
 			alert('Must enter a valid username and password.');
 			window.location.href='../pages/login.php';
 			</script>";
 	}
-	elseif ($row['Username'] == $username && $password == "") 
-	{
+	elseif ($row['Username'] == $username && $password == $hashed_password && $password == "") 
+	{		
 		header("location: ../pages/newPass.php");
 		// echo "<script>
 		// 	alert('Please enter a password.');
@@ -79,11 +80,12 @@
 	// elseif (hash_equals($hashed_password, crypt($password, $hashed_password)))
 	elseif (password_verify($password, $hashed_password))
 	{
+		$_SESSION['logged_in'] = True;
 		header("location: ../pages/opened.php");
 	}
 	else 
 	{
-		echo '$("#alert").html("Invalid login combination. Please try again.")';
+		// echo '$("#alert").html("Invalid login combination. Please try again.")';
 		echo "<script>
 			alert('Invalid login combination. Please try again.');
 			window.location.href='../pages/login.php';

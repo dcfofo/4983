@@ -43,9 +43,10 @@
                             <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                             <input id="pass" name="pass" type="password" class="form-control" name="password" placeholder="Password">
                         </div>
-
+                        <!-- OPTIONAL INVALID LOGIN COMBO MESSAGE -->
+                        <!-- <?php echo ($_SESSION['logged_in'] == False) ? '<div class="alert alert-danger" role="alert" id="alert"><p><br>Invalid login combination.</p></div>' : ''; ?> -->
                         <!-- OPTIONAL ALERT FOR INVALID PASSWORD (NOT FUNCTIONAL) -->
-                        <!-- <div class="alert alert-danger" role="alert" id="alert"></div> -->                                                              
+                        <!-- <div class="alert alert-danger" role="alert" id="alert"><p><br>Invalid login combination.</p></div> -->                                                              
 
                         <div class="form-group">
                             <!-- Login Button -->

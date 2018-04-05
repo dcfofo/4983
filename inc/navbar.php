@@ -7,8 +7,8 @@
 
 
 <?php
-    if(empty($_SESSION))
-        session_start(); 
+  if(empty($_SESSION))
+    session_start(); 
 ?>
 
 <nav class="navbar navbar-fixed-top navbar-default">
@@ -24,12 +24,7 @@
           <!-- <a class="navbar-brand fa fa-home" href="opened.php">Shop Registry</a> -->
           <!-- Can add class="navbar-brand" to <a> -->
           <a href="../pages/opened.php">
-            <!-- <img class="fa fa-home" alt="Brand" src="images/Brand11.png" href="opened.php" height="45" width="100"> -->
-            <!-- <img class="fa fa-home" alt="Brand" src="images/Brand10.png" href="opened.php" height="50" width="120"> -->
-            <!-- <img class="fa fa-home" alt="Brand" src="images/Brand12.png" href="opened.php" height="50" width="50"> -->
-            <!-- <img class="fa fa-home" alt="Brand" src="images/13.png" href="opened.php" height="50" width="60"> -->
-            <!-- <img class="fa fa-home" alt="Brand" src="images/14.png" href="opened.php" height="50" width="80"> -->
-            <img class="fa fa-home" alt="Brand" src="../images/2.gif" href="opened.php" height="50" width="120">
+            <img class="fa fa-home" alt="Brand" src="../images/1.png" height="48" width="120">
           </a>
         </div>
         
@@ -37,26 +32,26 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
             <!-- OPEN ITEMS TAB -->
-            <!-- <li><a id="opem-items-nav" href="opened.php">Open Items</a></li> -->
+            <li <?php echo ($page == 'opened') ? 'class="active"' : '';?>><a id="opem-items-nav" href="opened.php">Open Items</a></li>
             <!-- <li><a id="open-items-nav" href="#">Open Items</a></li> -->
             <!-- CLOSED ITEMS TAB -->
-            <li><a id="opem-items-nav" href="../pages/closed.php">Shop Inventory</a></li>
+            <li <?php echo ($page == 'closed') ? 'class="active"' : '';?>><a id="closed-items-nav" href="../pages/closed.php">Shop Inventory</a></li>
             <!-- <li><a id="closed-items-nav" href="#">Closed Items</a></li> -->
-            <li><a id="log-history-nav" href="../pages/logHistory.php">Shop Log</a></li>
+            <li <?php echo ($page == 'log') ? 'class="active"' : '';?>><a id="log-history-nav" href="../pages/logHistory.php">Shop Log</a></li>
             <!-- SHOPS DROPDOWN LIST -->
-            <li class="dropdown">
+            <li class="dropdown <?php echo ($page == 'other') ? 'active' : '';?>">
               <a id="shops-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Shops <span class="caret"></span></a>
               <!-- MAKE THIS SELECT INSTEAD OF UL?? -->
-              <ul class="dropdown-menu">
-              	<li><a id="alse-shop-nav" href="../pages/other-shops.php?shop=alse_shop">ALSE Shop</a></li>
+              <ul class="dropdown-menu"s>
+              	<li  <?php echo ($_SESSION['Shop'] == 'ALSE Shop') ? 'class="active"' : '';?>><a id="alse-shop-nav" href="<?php echo ($_SESSION['Shop'] == 'ALSE Shop') ? '../pages/closed.php' : '../pages/other-shops.php?shop=alse_shop';?>">ALSE Shop</a></li>
                 <!-- <li><a id="alse-shop-nav" href="#">ALSE Shop</a></li>  -->    
-                <li><a id="avs-labs-nav" href="../pages/other-shops.php?shop=avs_labs">AVS Labs</a></li>
+                <li  <?php echo ($_SESSION['Shop'] == 'AVS Labs') ? 'class="active"' : '';?>><a id="avs-labs-nav" href="<?php echo ($_SESSION['Shop'] == 'AVS Labs') ? '../pages/closed.php' : '../pages/other-shops.php?shop=avs_labs';?>">AVS Labs</a></li>
                 <!-- <li><a id="avs-labs-nav" href="#">AVS Labs</a></li> -->   
-                <li><a id="component-shop-nav" href="../pages/other-shops.php?shop=component_shop">Component Shop</a></li>
+                <li  <?php echo ($_SESSION['Shop'] == 'Component Shop') ? 'class="active"' : '';?>><a id="component-shop-nav" href="<?php echo ($_SESSION['Shop'] == 'Component Shop') ? '../pages/closed.php' : '../pages/other-shops.php?shop=component_shop';?>">Component Shop</a></li>
                 <!-- <li><a id="component-shop-nav" href="#">Component Shop</a></li> -->
                 <!-- <li role="separator" class="divider"></li> -->
-              	<li><a id="engine-bay-nav" href="../pages/other-shops.php?shop=engine_bay">Engine Bay</a></li>
-                <!-- <li><a id="engine-bay-nav" href="#">Engine Bay</a></li> -->                     
+              	<li  <?php echo ($_SESSION['Shop'] == 'Engine Bay') ? 'class="active"' : '';?>><a id="engine-bay-nav" href="<?php echo ($_SESSION['Shop'] == 'Engine Bay') ? '../pages/closed.php' : '../pages/other-shops.php?shop=engine_bay';?>">Engine Bay</a></li>
+                <!-- <li><a id="engine-bay-nav" href="#">Engine Bay</a></li> -->                 
               </ul>
             </li>
             <!-- MANAGE PARTS DROPDOWN LIST -->
@@ -116,7 +111,14 @@
           
           <!-- LOGOUT BUTTON -->
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="../inc/logout.php" class="tablinks"><strong>Logout</strong></a></li>
+            <li class="dropdown <?php echo ($page == 'help') ? 'active' : '';?>">
+              <a id="shops-nav" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION['user'] . "@" .  $_SESSION['Shop']; ?> <span class="caret"></span>
+              </a>
+              <ul class="dropdown-menu"s>
+                <li <?php echo ($page == 'help') ? 'class="active"' : '';?>><a href="../pages/help.php" class="tablinks">Help</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="../inc/logout.php" class="tablinks"><strong>Logout</strong></a></li>
+            </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->

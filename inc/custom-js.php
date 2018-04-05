@@ -4,34 +4,6 @@
 <script src="../js/bootstrap.min.js"></script>
 <script src="../js/active-script.js"></script>
 <script>
-// document.getElementById("open-items").style.display = "true";
-// document.getElementById("closed-items").style.display = "none";
-// document.getElementById("shops").style.display = "none";
-// document.getElementById("component-history").style.display = "none
-  // $("#closed-items-nav").click(function(){
-  //   $("#open-items").hide()
-  //   $("#shops").hide()
-  //   $("#component-history").hide()
-  //     $("#closed-items").show();
-  // });
-  // $("#open-items-nav").click(function(){
-  //   $("#closed-items").hide()
-  //   $("#shops").hide()
-  //   $("#component-history").hide()
-  //     $("#open-items").show();
-  // });
-  // $("#shops-nav").click(function(){
-  //   $("#closed-items").hide()
-  //   $("#open-items").hide()
-  //   $("#component-history").hide()
-  //     $("#shops").show();
-  // });
-  // $("#component-history-nav").click(function(){
-  //   $("#closed-items").hide()
-  //   $("#open-items").hide()
-  //   $("#shops").hide()
-  //     $("#component-history").show();
-  // });
   function showUser(str) {
       if (str == "") {
           document.getElementById("search_result").innerHTML = "";

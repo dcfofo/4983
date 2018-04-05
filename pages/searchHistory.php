@@ -43,6 +43,7 @@ mysqli_close($connection);
 
 <!-- START SEARCHHISTORY.PHP -->
 <?php include '../inc/header.php';?>
+<?php include '../inc/custom-js.php';?>
 <body id="searchHistory-body">
 <?php include '../inc/navbar.php';?>
 
@@ -73,9 +74,8 @@ if ( $result1->num_rows < 1 ) {
 <div class="SN-history" id="SN-history">
     <div class="container">
       <div class="panel panel-default">
-        <!-- Default panel contents -->
         <div class="panel-heading"><strong><?php echo"<strong>{$SN}</strong>";?> Component History</strong>
-          <span class="badge pull-right hidden-xs"><?php echo"{$_SESSION['SN-search-count']}";?>                
+          <span class="badge pull-right hidden-xs"><?php echo"{$_SESSION['SN-search-count']}";?>  
           </span>
         </div>
 
@@ -141,9 +141,8 @@ if ( $result1->num_rows < 1 ) {
         </div>
       </div>
     </div>    
-<?php include '../inc/custom-js.php';?>
 <?php include '../inc/footer.php';?>
 </body>
 </html>
-<!-- END OTHERSHOPS.PHP -->
+<!-- END SEARCHHISTORY.PHP -->
 

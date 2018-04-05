@@ -6,7 +6,6 @@
 
 
 <?php
-    //include 'connect_to_DB.php';
     if(empty($_SESSION)) // if the session not yet started 
         session_start(); 
     if(!isset($_SESSION['user']))
@@ -47,7 +46,7 @@ mysqli_close($connection);
 <!-- START CLOSED.PHP -->
 <?php include '../inc/header.php';?>
   <body id="closed-items-body">
-      <?php include '../inc/navbar.php';?>
+      <?php $page = 'closed'; include '../inc/navbar.php';?>
 
       <div class="closed-items" id="closed-items">
         <div class="container">
@@ -96,7 +95,7 @@ mysqli_close($connection);
                   while($row = mysqli_fetch_array($result, MYSQLI_ASSOC)) 
                   {
                       echo "<tr>"; 
-                          echo "<form class='form-inline' method='post' action='../inc/deleteLog.php?Control_no={$row['Control_no']}'>";                 
+                          echo "<form class='form-inline' method='post' action='../inc/remove.php?Control_no={$row['Control_no']}'>";                 
                           echo "<td>$count</td>";
                           echo "<td>". $row['NSN'] ."</td>";
                           echo "<td>". $row['Comp_name'] ."</td>";
@@ -106,7 +105,7 @@ mysqli_close($connection);
                           echo "<td>". $row['Log_closed_by'] ."</td>";
                           echo "<td><button type='submit' class='btn btn-sm btn-danger' name='delete' id='delete'
                                 <a onClick=\"javascript: return confirm('Please confirm deletion');\" 
-                                href='deleteLog.php?id=Control_no={$row['Control_no']}'></a>Remove</button></td>";
+                                href='remove.php?id=Control_no={$row['Control_no']}'></a>Remove</button></td>";
                       echo "</form>";
                       echo "</tr>";
                       $count++;
@@ -120,8 +119,7 @@ mysqli_close($connection);
               ?>  
             </div>
           </div>
-        </div><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> 
-
+        </div>
 <?php include '../inc/custom-js.php';?>
 <?php include '../inc/footer.php';?>
   </body>

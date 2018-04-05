@@ -20,7 +20,7 @@
 <?php
     //echo "<h1>The current shop is: " . $_GET["shop"] . "</h1>";
     if($_GET['shop'] === 'alse_shop')
-        $shop = 'ALSE Shop'; 
+        $shop = 'ALSE Shop';
     elseif($_GET['shop'] === 'avs_labs')
         $shop = 'AVS Labs';
     elseif($_GET['shop'] === 'component_shop')
@@ -62,7 +62,7 @@ mysqli_close($connection);
 <?php include '../inc/header.php';?>
 
   <body id="other-shops-body">
-  <?php include '../inc/navbar.php';?>
+  <?php $page = 'other'; include '../inc/navbar.php';?>
 
     <div class="closed-items" id="closed-items">
         <div class="container">

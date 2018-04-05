@@ -46,7 +46,7 @@
 <!-- START CLOSED.PHP -->
 <?php include '../inc/header.php';?>
 <body id="log-items-body">
-<?php include '../inc/navbar.php';?>
+<?php $page = 'log'; include '../inc/navbar.php';?>
 
       <div class="log-items" id="log-items">
         <div class="container">
@@ -60,6 +60,7 @@
                   <h5 class="badge hidden-xs"><?php echo"{$_SESSION['log-count']}";?></h5>
               </div> -->
               <!-- <form action="../pages/logHistory.php"> -->
+
               <!-- Input for start and end dates -->
               <form action="<?php echo $_SERVER['PHP_SELF'];?>">
               <div class="input-group col-xs-2 pull-right count">
